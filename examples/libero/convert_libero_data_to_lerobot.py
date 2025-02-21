@@ -77,8 +77,7 @@ def main(data_dir: str, *, push_to_hub: bool = False):
     # Loop over raw Libero datasets and write episodes to the LeRobot dataset
     # You can modify this for your own data format
     for raw_dataset_name in RAW_DATASET_NAMES:
-        # raw_dataset = tfds.load(raw_dataset_name, data_dir=data_dir, split="train")
-        raw_dataset = tfds.load(raw_dataset_name, data_dir=data_dir, split="train", try_import = True)
+        raw_dataset = tfds.load(raw_dataset_name, data_dir=data_dir, split="train")
         for episode in raw_dataset:
             for step in episode["steps"].as_numpy_iterator():
                 dataset.add_frame(
