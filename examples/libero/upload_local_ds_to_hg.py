@@ -5,7 +5,7 @@ dataset_path = "/mnt/arc/yygx/pkgs_baselines/openpi/data/huggingface/lerobot/yyg
 dataset_path = "/home/yygx/.cache/huggingface/lerobot/yygx/libero90"
 
 # Load dataset
-dataset = LeRobotDataset.load(dataset_path)
+dataset = LeRobotDataset(dataset_path)
 
 # Check dataset info
 print(dataset)
