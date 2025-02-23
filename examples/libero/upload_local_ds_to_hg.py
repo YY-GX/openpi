@@ -5,7 +5,7 @@ dataset_path = "/mnt/arc/yygx/pkgs_baselines/openpi/data/huggingface/lerobot/yyg
 dataset_path = "/home/yygx/.cache/huggingface/lerobot/yygx/libero90"
 
 # Load dataset
-dataset = LeRobotDataset(root=dataset_path, repo_id="yygx/libero90")
+dataset = LeRobotDataset(root=dataset_path, repo_id="yygx/libero90", local_files_only=True)
 
 # Check dataset info
 print(dataset)
