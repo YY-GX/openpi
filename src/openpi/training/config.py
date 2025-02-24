@@ -520,7 +520,8 @@ _CONFIGS = [
     ),
     TrainConfig(
         name="pi0_fast_libero_low_mem_finetune_yy",
-        model=pi0_fast.Pi0FASTConfig(paligemma_variant="gemma_2b_lora"),
+        # model=pi0_fast.Pi0FASTConfig(paligemma_variant="gemma_2b_lora"),
+        model=pi0_fast.Pi0FASTConfig(action_dim=7, action_horizon=10, max_token_len=180, paligemma_variant="gemma_2b_lora"),
         data=LeRobotLiberoDataConfig(
             repo_id="yygx/libero90",
             base_config=DataConfig(
