@@ -380,6 +380,8 @@ class TrainConfig:
             raise ValueError("Cannot resume and overwrite at the same time.")
 
 
+
+# yy: Define your new configs in the following list
 # Use `get_config` if you need to get a config by name in your code.
 _CONFIGS = [
     #
@@ -509,7 +511,7 @@ _CONFIGS = [
         data=LeRobotLiberoDataConfig(
             repo_id="yygx/libero90",
             base_config=DataConfig(
-                local_files_only=False,  # Set to True for local-only datasets.
+                local_files_only=True,  # Set to True for local-only datasets.
                 prompt_from_task=True,
             ),
         ),
