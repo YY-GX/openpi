@@ -135,6 +135,10 @@ class Normalize(DataTransformFn):
         )
 
     def _normalize(self, x, stats: NormStats):
+        print("Input data shape:", x.shape)
+        print("Stats mean shape:", stats.mean.shape)
+        print("Stats std shape:", stats.std.shape)
+
         return (x - stats.mean) / (stats.std + 1e-6)
 
     def _normalize_quantile(self, x, stats: NormStats):
