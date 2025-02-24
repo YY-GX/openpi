@@ -44,10 +44,10 @@ class TransformedDataset(Dataset[T_co]):
         self._transform = _transforms.compose(transforms)
 
     def __getitem__(self, index: SupportsIndex) -> T_co:
-        print(self._dataset[index].keys())
-        print("state: ", self._dataset[index]["state"].shape)
-        print("action: ", self._dataset[index]["actions"].shape)
-        print("=================================================")
+        # print(self._dataset[index].keys())
+        # print("state: ", self._dataset[index]["state"].shape)
+        # print("action: ", self._dataset[index]["actions"].shape)
+        # print("=================================================")
 
         return self._transform(self._dataset[index])
 
