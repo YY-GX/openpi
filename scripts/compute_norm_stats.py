@@ -50,8 +50,8 @@ def main(config_name: str, max_frames: int | None = None):
 
     data_loader = _data_loader.TorchDataLoader(
         dataset,
-        local_batch_size=8,  # yy: ori: 1,
-        num_workers=8,
+        local_batch_size=32,  # yy: ori: 1,
+        num_workers=32,  # yy: ori: 8,
         shuffle=shuffle,
         num_batches=num_frames,
     )
