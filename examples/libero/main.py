@@ -94,7 +94,8 @@ def eval_libero(args: Args) -> None:
             action_plan = collections.deque()
 
             # Set initial states
-            obs = env.set_init_state(initial_states[episode_idx])
+            # obs = env.set_init_state(initial_states[episode_idx])
+            obs = env.set_init_state(initial_states[episode_idx % initial_states.shape[0]])  # yy: I modified this
 
             # Setup
             t = 0
