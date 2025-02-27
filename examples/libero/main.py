@@ -74,6 +74,7 @@ def eval_libero(args: Args) -> None:
 
     # Start evaluation
     total_episodes, total_successes = 0, 0
+    task_succ_rate_ls = []  # list of success rates for each task
     for task_id in tqdm.tqdm(range(num_tasks_in_suite)):
         # Get task
         task = task_suite.get_task(task_id)
@@ -180,11 +181,14 @@ def eval_libero(args: Args) -> None:
             logging.info(f"# successes: {total_successes} ({total_successes / total_episodes * 100:.1f}%)")
 
         # Log final results
+        task_succ_rate_ls.append(task_successes / task_episodes)
+        np.save(pathlib.Path(args.video_out_path) / "task_success_rates.npy", task_succ_rate_ls)
         logging.info(f"Current task success rate: {float(task_successes) / float(task_episodes)}")
         logging.info(f"Current total success rate: {float(total_successes) / float(total_episodes)}")
 
     logging.info(f"Total success rate: {float(total_successes) / float(total_episodes)}")
     logging.info(f"Total episodes: {total_episodes}")
+    np.save(pathlib.Path(args.video_out_path) / "task_success_rates.npy", task_succ_rate_ls)
 
 
 def _get_libero_env(task, resolution, seed):
