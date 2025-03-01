@@ -26,16 +26,16 @@ import tensorflow_datasets as tfds
 import tyro
 
 # REPO_NAME = "yygx/libero90"  # Name of the output dataset, also used for the Hugging Face Hub
-REPO_NAME = "yygx/libero_g5"  # Name of the output dataset, also used for the Hugging Face Hub
-# REPO_NAME = "yygx/libero_g7"  # Name of the output dataset, also used for the Hugging Face Hub
+# REPO_NAME = "yygx/libero_g5"  # Name of the output dataset, also used for the Hugging Face Hub
+REPO_NAME = "yygx/libero_g7"  # Name of the output dataset, also used for the Hugging Face Hub
 RAW_DATASET_NAMES = [
     # "libero_10_no_noops",
     # "libero_goal_no_noops",
     # "libero_object_no_noops",
     # "libero_spatial_no_noops",
     # "libero90",
-    "libero_g5",
-    # "libero_g7",
+    # "libero_g5",
+    "libero_g7",
 ]  # For simplicity we will combine multiple Libero datasets into one training dataset
 
 
