@@ -5,9 +5,16 @@ import math
 import pathlib
 
 import imageio
+import os
+
+original_dir = os.getcwd()
+new_dir = "/mnt/arc/yygx/paper_codebases/RA-L_25/BOSS"  # Replace with your target directory
+os.chdir(new_dir)
 from libero.libero import benchmark
 from libero.libero import get_libero_path
 from libero.libero.envs import OffScreenRenderEnv
+os.chdir(original_dir)
+
 import numpy as np
 from openpi_client import image_tools
 from openpi_client import websocket_client_policy as _websocket_client_policy
@@ -32,7 +39,8 @@ class Args:
     # LIBERO environment-specific parameters
     #################################################################################################################
     task_suite_name: str = (
-        "libero_90"  # Task suite. Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
+        # "libero_90",  # Task suite. Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
+        "g7"
     )
     num_steps_wait: int = 10  # Number of steps to wait for objects to stabilize i n sim
     num_trials_per_task: int = 20  # Number of rollouts per task
@@ -68,7 +76,8 @@ def eval_libero(args: Args) -> None:
     elif args.task_suite_name == "libero_90":
         max_steps = 400  # longest training demo has 373 steps
     else:
-        raise ValueError(f"Unknown task suite: {args.task_suite_name}")
+        max_steps = 400  # yy: still use 400 for all other task suites
+        # raise ValueError(f"Unknown task suite: {args.task_suite_name}")
 
     client = _websocket_client_policy.WebsocketClientPolicy(args.host, args.port)
 
